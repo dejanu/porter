@@ -17,7 +17,7 @@ az account set --subscription <subscription_ID>
 
 * By default the credentials are merged in the current kubeconfig `~/.kube/config`, more about flags and usage [here](https://learn.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials)
 ```bash
-az aks get-credentials --resource-group <reseource_group> --name <cluster_name> -o yaml
+az aks get-credentials --resource-group <resource_group> --name <cluster_name> -o yaml
 ```
 3) Check/set the Kubernetes context (most probably now you have multiple contexts stored in your kubeconfig file)
 ```bash
@@ -43,6 +43,9 @@ porter credentials generate kubeconfig
 ## Create an AKS cluster with Porter
 
 1) To access resources that are secured by a Microsoft Entra tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal).
+
+* A service principal is the local representation of an application object in a single Microsoft Entra tenant.
+Furthermore we're going to use client secret for authethicating using service principals.
 
 
 2) Install az-mixin: [docs](https://porter.sh/mixins/az/) and [repo](https://github.com/getporter/az-mixin)
