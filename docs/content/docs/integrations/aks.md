@@ -42,15 +42,18 @@ porter credentials generate kubeconfig
 
 ## Create an AKS cluster with Porter
 
-1) Install az-mixin: [docs](https://porter.sh/mixins/az/) and [repo](https://github.com/getporter/az-mixin)
+1) To access resources that are secured by a Microsoft Entra tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal).
+
+
+2) Install az-mixin: [docs](https://porter.sh/mixins/az/) and [repo](https://github.com/getporter/az-mixin)
 ```bash
 porter mixin install az
 ```
-2) Create porter bundle i.e. `demo_aks`
+3) Create porter bundle i.e. `demo_aks`
 ```bash
 porter create demo_aks
 ```
-3) Update `porter.yaml`
+4) Update `porter.yaml`
 ```yaml
 mixins:
 - az
